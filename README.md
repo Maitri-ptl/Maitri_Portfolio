@@ -10,7 +10,6 @@ and fetched dynamically; contact form submissions are saved to MongoDB too.
 Maitri_Portfolio/
 ├── Frontend/     → React app (Vite, Tailwind, React Router)
 ├── Backend/      → Express API (Mongoose, MongoDB)
-├── LEARNINGS.md  → beginner-friendly notes on every library/pattern used
 └── README.md     → this file
 ```
 
