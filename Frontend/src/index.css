@@ -115,6 +115,24 @@
     [role='button'] {
       cursor: none;
     }
+
+    /* The admin dashboard has no CustomCursor (it's a tool, not a showcase),
+       so the native pointer must stay visible there. AdminGate adds the
+       `admin-mode` class to <html> while it's mounted. */
+    html.admin-mode body {
+      cursor: auto;
+    }
+    html.admin-mode a,
+    html.admin-mode button,
+    html.admin-mode [role='button'],
+    html.admin-mode select,
+    html.admin-mode summary {
+      cursor: pointer;
+    }
+    html.admin-mode input,
+    html.admin-mode textarea {
+      cursor: text;
+    }
   }
 
   body {

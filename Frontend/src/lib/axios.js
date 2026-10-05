@@ -28,6 +28,19 @@ api.interceptors.request.use((config) => {
 api.interceptors.response.use(
   (response) => response,
   (error) => {
+    // An admin request came back 401 while we had a token → the session
+    // expired (or JWT_SECRET changed). Clear it and tell the admin UI to show
+    // the login screen again. The login request itself is excluded so a wrong
+    // password doesn't trigger this.
+    if (
+      error.response?.status === 401 &&
+      localStorage.getItem('admin_token') &&
+      !error.config?.url?.includes('/auth/login')
+    ) {
+      localStorage.removeItem('admin_token');
+      window.dispatchEvent(new Event('admin-unauthorized'));
+    }
+
     const message =
       error.response?.data?.message || error.message || 'Something went wrong';
     return Promise.reject(new Error(message));

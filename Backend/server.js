@@ -6,6 +6,7 @@ const seedIfEmpty = require('./config/seedIfEmpty');
 const projectRoutes = require('./routes/projectRoutes');
 const contactRoutes = require('./routes/contactRoutes');
 const authRoutes = require('./routes/authRoutes');
+const messageRoutes = require('./routes/messageRoutes');
 const { errorHandler, notFound } = require('./middleware/errorHandler');
 
 // Connect to MongoDB, then add the default projects if the collection is empty.
@@ -19,6 +20,7 @@ const app = express();
 app.use(
   cors({
     origin: process.env.CLIENT_URL,
+    methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE', 'OPTIONS'],
   })
 );
 
@@ -29,6 +31,7 @@ app.use(express.json());
 app.use('/api/projects', projectRoutes);
 app.use('/api/contact', contactRoutes);
 app.use('/api/auth', authRoutes);
+app.use('/api/messages', messageRoutes);
 
 // Simple health check — useful for confirming the server is up.
 app.get('/api/health', (req, res) => {

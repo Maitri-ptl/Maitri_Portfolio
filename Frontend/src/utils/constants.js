@@ -4,7 +4,7 @@
 
 export const SOCIAL_LINKS = [
   { label: 'GitHub', href: 'https://github.com/Maitri-ptl', icon: 'Github' },
-  { label: 'LinkedIn', href: 'https://linkedin.com/in/maitri-patel', icon: 'Linkedin' },
+  { label: 'LinkedIn', href: 'https://www.linkedin.com/in/maitri-patel-1a6406375', icon: 'Linkedin' },
   { label: 'Email', href: 'mailto:maitripatel036@gmail.com', icon: 'Mail' },
 ];
 
