@@ -75,26 +75,6 @@ The site runs at `http://localhost:5173`.
 VITE_API_URL=http://localhost:5000/api
 ```
 
-## Admin dashboard
-
-Projects are managed from a hidden admin dashboard rather than editing the
-database by hand:
-
-- URL: whatever you set as `VITE_ADMIN_URL` in `Frontend/.env` (a random
-  slug, not a guessable `/admin`) — e.g. `http://localhost:5173/admin-xxxxx`.
-- Password: whatever you set as `ADMIN_PASS` in `Backend/.env`.
-- Once logged in, you can add, edit, and delete projects — no need to touch
-  `seed.js` or MongoDB directly for day-to-day updates.
-
-The login issues a JWT (stored in the browser's localStorage) that's sent
-with every admin request; the backend's `requireAdmin` middleware
-(`Backend/middleware/requireAdmin.js`) rejects any create/update/delete
-request without a valid one. There's a single shared admin password, not
-per-user accounts, since only you manage this site.
-
-**Keep `ADMIN_PASS`, `JWT_SECRET`, and your admin URL secret** — don't
-commit real values to a public repo (`.env` is already git-ignored).
-
 ## Personal content
 
 - **About photo** — `Frontend/src/assets/maitri.jpg` (shown in the About section,
