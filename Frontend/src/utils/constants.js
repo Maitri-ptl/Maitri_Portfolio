@@ -5,7 +5,15 @@
 export const SOCIAL_LINKS = [
   { label: 'GitHub', href: 'https://github.com/Maitri-ptl', icon: 'Github' },
   { label: 'LinkedIn', href: 'https://www.linkedin.com/in/maitri-patel-1a6406375', icon: 'Linkedin' },
-  { label: 'Email', href: 'mailto:maitripatel036@gmail.com', icon: 'Mail' },
+  // A Gmail "compose" URL (not `mailto:`) so this always opens Gmail in the
+  // browser — mailto: links instead hand off to whatever the visitor's OS
+  // has set as the default mail app (often Outlook/Microsoft Mail), which is
+  // not what we want here.
+  {
+    label: 'Email',
+    href: 'https://mail.google.com/mail/?view=cm&fs=1&to=maitripatel036@gmail.com',
+    icon: 'Mail',
+  },
 ];
 
 // Resume PDF served from Frontend/public. To update it, just replace that file
